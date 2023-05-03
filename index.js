@@ -21,16 +21,19 @@ function validate() {
     const parent = i.parentElement;
     if (!i.value) {
       i.style.borderColor = "red";
-      parent.querySelector("small").innerText = "this field is required.";
+      parent.querySelector("small").innerText = "This Field is Required.";
+      validator = false;
+    } else if (yearInp.value > 12) {
+      yearInp.style.borderColor = "red";
+      yearInp.parentElement.querySelector("small").innerText = "Must Be a Valid Year.";
       validator = false;
     } else if (monthInp.value > 12) {
         monthInp.style.borderColor = "red";
-        monthInp.parentElement.querySelector("small").innerText = "must be valid month.";
+        monthInp.parentElement.querySelector("small").innerText = "Must Be a Valid Month.";
         validator = false;
     } else if (dayInp.value > 31) {
         dayInp.style.borderColor = "red";
-        dayInp.parentElement.querySelector("small").innerText =
-          "must be valid day.";
+        dayInp.parentElement.querySelector("small").innerText = "Must Be a Valid Day.";
         validator = false;
     } else {
       i.style.borderColor = "black";
